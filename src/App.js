@@ -65,9 +65,9 @@ export default class App extends Component {
     .then(response => response.json())
     .then(data => {
         if(data) {
-          
+          document.getElementById(orderNo).remove();
         }
-        })
+    })
     .catch((err) => console.log(err));
   }
 
@@ -99,10 +99,10 @@ export default class App extends Component {
           <div className="form-check">
               <ul className="orders-list">
                 {this.state.orders.map((item) => {
-                  return <div className="order"> 
+                  return <div id={item.orderNo}> 
                     <label className="form-check-label">
                       <input type="checkbox" className="form-check-input" checked={item.status === "'Delivered'" ? true : false}/>
-                      <li id={item.orderNo}> {item.orderNo} {item.date} {item.customer} {item.trackingNo} {item.status}
+                      <li> {item.orderNo} {item.date} {item.customer} {item.trackingNo} {item.status}
                         <span>
                           <button 
                           key={item.orderNo} 
