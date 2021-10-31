@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import store from './Redux/Store'
 import './App.css';
 
 export default class App extends Component {
@@ -16,13 +15,6 @@ export default class App extends Component {
         this.setState({ 
           orders: orders
         })
-        const ordersList = orders;
-          store.dispatch({
-              type: 'ALL_ORDERS',
-              payload: {
-                ordersList: ordersList
-              }
-          });
       })
       .catch((err) => console.log(err));
   }
